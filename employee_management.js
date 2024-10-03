@@ -11,7 +11,27 @@ getDetails() {
 
 }
 
-// const Maria = new Employee ("Maria", 45000, "saler", "tech")
+const Maria = new Employee ("Maria", 45000, "sales", "tech")
+const Sara = new Employee ('Sara', 32000, 'HR', 'tech')
 
-// console.log(Maria)
-// console.log(Maria.getDetails())
+
+
+class Department {
+    constructor(name, employees = []) {
+        this._name = name;
+        this._employees = employees;
+    }
+ addEmployee (newEmployee)
+{ this._employees.push(newEmployee)}
+
+get departmentSalary () {
+    return this._employees.reduce((salaries, employee) => salaries + employee._salary, 0)
+}
+}
+
+const tech = new Department ('tech', [])
+tech.addEmployee(Maria)
+tech.addEmployee(Sara)
+console.log(tech)
+
+console.log(tech.departmentSalary)
